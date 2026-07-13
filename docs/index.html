@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="EchoMap - adaptive chirp echolocation robot for room mapping and surface material identification." />
+  <title>EchoMap · Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Acoustic SLAM · echolocation · mapping</p>
+      <h1>EchoMap</h1>
+      <p class="tagline">
+        Drive around a room, emit chirps, read echoes on a 4-mic array, and label walls by material.
+      </p>
+      <div class="hero-links">
+        <a class="btn primary" href="https://github.com/larped-gpu/echo-map" target="_blank" rel="noopener">View source</a>
+        <a class="btn ghost" href="wiring.html">Wiring docs</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel demo-panel" aria-labelledby="demo-title">
+      <div class="panel-head">
+        <h2 id="demo-title">Interactive demo</h2>
+        <p>Simulated room + adaptive policy. Pick a chirp mode or hit Auto explore.</p>
+      </div>
+
+      <div class="controls-bar">
+        <button type="button" class="btn primary" id="btn-explore">Auto explore</button>
+        <button type="button" class="btn ghost" id="btn-step">Step once</button>
+        <button type="button" class="btn ghost" id="btn-reset">Reset</button>
+        <button type="button" class="btn ghost" id="btn-mute">Sound: off</button>
+        <span class="demo-stats" id="demo-stats">step 0 · map 0% · walls 0/0</span>
+      </div>
+
+      <div class="demo-grid">
+        <div class="scope-card">
+          <div class="scope-header">
+            <span class="live-dot" aria-hidden="true"></span>
+            <span>Echo response · matched filter</span>
+            <span class="scope-meta" id="scope-status">idle</span>
+          </div>
+          <canvas id="echo-canvas" width="640" height="180" aria-label="Simulated echo waveform with correlation peak"></canvas>
+
+          <div class="map-wrap">
+            <div class="scope-header">
+              <span>Room map · 5 cm cells · 6×6 m</span>
+            </div>
+            <canvas id="map-canvas" width="480" height="480" aria-label="Simulated occupancy and material map"></canvas>
+            <ul class="legend" aria-label="Material legend">
+              <li><span class="swatch" style="background:#c8b48c"></span>drywall</li>
+              <li><span class="swatch" style="background:#8b5a2b"></span>wood</li>
+              <li><span class="swatch" style="background:#7ec8e8"></span>glass</li>
+              <li><span class="swatch" style="background:#b8c0c8"></span>metal</li>
+              <li><span class="swatch" style="background:#a07850"></span>carpet</li>
+              <li><span class="swatch" style="background:#6e7278"></span>concrete</li>
+              <li><span class="swatch" style="background:#e8edf2; border:1px solid #2a3548"></span>free</li>
+              <li><span class="swatch" style="background:#2a3140"></span>unknown</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="classifier-card">
+          <p class="label">Select chirp mode</p>
+          <div class="mode-grid" id="mode-grid" role="group" aria-label="Adaptive chirp modes"></div>
+
+          <div class="result-block" id="result-block" hidden>
+            <p class="label">Material classifier output</p>
+            <div class="prediction">
+              <span class="prediction-word" id="prediction-word">-</span>
+              <span class="prediction-conf" id="prediction-conf">0%</span>
+            </div>
+            <div class="confidence-bar" aria-hidden="true">
+              <div class="confidence-fill" id="confidence-fill"></div>
+            </div>
+          </div>
+
+          <p class="hint" id="demo-hint">Pick a chirp mode, or hit Auto explore to watch the adaptive policy map the room.</p>
+
+          <div class="log-block">
+            <p class="label">Policy log</p>
+            <div class="step-log" id="step-log" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel info-panel">
+      <h2>How it works</h2>
+      <ol class="pipeline">
+        <li><strong>Chirp</strong>: LFM sweep through speaker (3 modes)</li>
+        <li><strong>Capture</strong>: 4-mic array at 48 kHz</li>
+        <li><strong>Process</strong>: matched filter, TOA range, DOA bearing, MFCC</li>
+        <li><strong>Classify</strong>: EchoNet CNN, 6 material classes</li>
+        <li><strong>Map</strong>: occupancy grid + material overlay</li>
+        <li><strong>Policy</strong>: pick next pose + chirp from map uncertainty</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    <p>MIT · <a href="https://github.com/larped-gpu/echo-map">EchoMap</a></p>
+  </footer>
+
+  <script src="assets/demo.js"></script>
+</body>
+</html>

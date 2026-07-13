@@ -1,0 +1,31 @@
+Component,Qty,Price_USD,Link,Amazon_Link,Phase
+Raspberry Pi 4 (4 GB),1,55,https://www.raspberrypi.com/products/raspberry-pi-4-model-b/,,1
+microSD card (32 GB A1),1,9,https://www.amazon.com/s?k=microsd+32gb+a1,https://www.amazon.com/s?k=microsd+32gb+a1,1
+2WD robot chassis kit (TT motors + wheels + castor),1,16,https://www.amazon.com/s?k=2wd+robot+chassis+kit,https://www.amazon.com/s?k=2wd+robot+chassis+kit,1
+Wheel encoder sensor pair,1,5,https://www.amazon.com/s?k=wheel+encoder+robot,https://www.amazon.com/s?k=wheel+encoder+robot,1
+Motor driver L298N,1,6,https://www.amazon.com/s?k=l298n+motor+driver,https://www.amazon.com/s?k=l298n+motor+driver,1
+IMU MPU-6050,1,6,https://www.amazon.com/s?k=mpu6050+imu,https://www.amazon.com/s?k=mpu6050+imu,1
+18650 cells (2x) + holder,1,12,https://www.amazon.com/s?k=18650+battery+holder+2+cell,https://www.amazon.com/s?k=18650+battery+holder+2+cell,1
+18650 Li-ion charger (2-bay USB),1,9,https://www.amazon.com/s?k=18650+charger,https://www.amazon.com/s?k=18650+charger,1
+Buck converter (5V/3A),1,6,https://www.amazon.com/s?k=buck+converter+5v+3a,https://www.amazon.com/s?k=buck+converter+5v+3a,1
+Power switch + wiring,1,3,https://www.amazon.com/s?k=rocker+switch+wiring+kit,https://www.amazon.com/s?k=rocker+switch+wiring+kit,1
+4-channel USB audio interface (budget 48 kHz),1,50,https://www.amazon.com/s?k=4+channel+usb+audio+interface,https://www.amazon.com/s?k=4+channel+usb+audio+interface,2
+Small full-range speaker driver (2-3 inch),1,6,https://www.amazon.com/s?k=full+range+speaker+3+inch,https://www.amazon.com/s?k=full+range+speaker+3+inch,2
+Electret microphone capsules (WM-61A or Primo EM172),4,12,https://www.amazon.com/s?k=electret+microphone+capsule,https://www.amazon.com/s?k=electret+microphone+capsule,2
+Mic preamp board MAX9814 (4-mic array),4,18,https://www.amazon.com/s?k=max9814+microphone+preamp,https://www.amazon.com/s?k=max9814+microphone+preamp,2
+Rotring 600 Full-Metal,1,22,https://www.rotring.com/pens-pencils/mechanical-pencils/rotring-600-mechanical-pencil-1/SAP_1904443.html,,4
+Perfboard for mic bias / preamp wiring,1,6,https://www.amazon.com/s?k=perfboard+prototype+pcb,https://www.amazon.com/s?k=perfboard+prototype+pcb,2
+3.5 mm TRS audio cables (2-pack),1,12,https://www.amazon.com/s?k=3.5mm+trs+cable,https://www.amazon.com/s?k=3.5mm+trs+cable,2
+Speaker wire (~3 m),1,6,https://www.amazon.com/s?k=speaker+wire+18awg,https://www.amazon.com/s?k=speaker+wire+18awg,2
+Class-D amp PAM8403,1,3,https://www.amazon.com/s?k=pam8403+amplifier,https://www.amazon.com/s?k=pam8403+amplifier,2
+SG90 servo motor,1,4,https://www.amazon.com/s?k=sg90+servo,https://www.amazon.com/s?k=sg90+servo,2
+3D printer filament PLA/PETG (~250g chassis + acoustic head),1,8,https://www.amazon.com/s?k=pla+filament,https://www.amazon.com/s?k=pla+filament,2
+Ultrasonic transducer pair 40kHz (optional v2),1,4,https://www.amazon.com/s?k=ultrasonic+transducer+40khz,https://www.amazon.com/s?k=ultrasonic+transducer+40khz,2
+Drywall offcut (~40x40 cm),1,5,https://www.homedepot.com/,https://www.amazon.com/Drywall-Repair-Panel-Patch-Mend/dp/B0C3R21SK4,3
+Plywood offcut (~40x40 cm),1,6,https://www.homedepot.com/,https://www.amazon.com/Basswood-Unfinished-Architectural-Engraving-24Pack-16x16inch/dp/B0F1LJQMCK,3
+Acrylic/glass panel (~40x40 cm),1,10,https://www.homedepot.com/,https://www.amazon.com/MATOGOLLC-Clear-Plastic-Sheet-Thick/dp/B016QJLQYC,3
+Thin aluminum sheet (~40x40 cm),1,8,https://www.homedepot.com/,https://www.amazon.com/dp/B0BFR7WN5C,3
+Carpet remnant (~40x40 cm),1,5,https://www.homedepot.com/,https://www.amazon.com/dp/B01N5O4OSV,3
+Cement board offcut (~40x40 cm),1,5,https://www.homedepot.com/,https://www.amazon.com/dp/B000BTJPWC,3
+USB cables standoffs screws zip ties,1,8,https://www.amazon.com/s?k=standoff+screw+kit,https://www.amazon.com/s?k=standoff+screw+kit,4
+TOTAL,,325,,,

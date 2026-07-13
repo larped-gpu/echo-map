@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EchoMap · Wiring</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Hardware docs</p>
+      <h1>Wiring</h1>
+      <p class="tagline">ESP32 robot base + Raspberry Pi acoustic head hookup for EchoMap.</p>
+      <div class="hero-links">
+        <a class="btn primary" href="index.html">← Back to demo</a>
+        <a class="btn ghost" href="https://github.com/larped-gpu/echo-map" target="_blank" rel="noopener">View source</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel info-panel">
+      <h2>Robot base (ESP32)</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Component</th><th>Wire</th><th>ESP32 GPIO</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>L298N IN1 (left fwd)</td><td>PWM</td><td>GPIO 25</td></tr>
+            <tr><td>L298N IN2 (left bwd)</td><td>PWM</td><td>GPIO 26</td></tr>
+            <tr><td>L298N IN3 (right fwd)</td><td>PWM</td><td>GPIO 27</td></tr>
+            <tr><td>L298N IN4 (right bwd)</td><td>PWM</td><td>GPIO 14</td></tr>
+            <tr><td>Left encoder A</td><td>digital</td><td>GPIO 18</td></tr>
+            <tr><td>Right encoder A</td><td>digital</td><td>GPIO 19</td></tr>
+            <tr><td>SG90 servo signal</td><td>PWM</td><td>GPIO 13</td></tr>
+            <tr><td>MPU-6050 SDA</td><td>I2C</td><td>GPIO 21</td></tr>
+            <tr><td>MPU-6050 SCL</td><td>I2C</td><td>GPIO 22</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel info-panel">
+      <h2>Acoustic head (Raspberry Pi)</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Component</th><th>Connection</th><th>Pi</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>USB audio interface (4-channel, 48 kHz)</td><td>USB</td><td>USB port</td></tr>
+            <tr><td>Speaker driver (2-3")</td><td>amp out → speaker</td><td>via PAM8403</td></tr>
+            <tr><td>PAM8403 amp input</td><td>DAC L/R</td><td>USB audio line out</td></tr>
+            <tr><td>Electret mic × 4</td><td>preamp out → ADC</td><td>USB audio line in</td></tr>
+            <tr><td>MAX9814 preamp × 4</td><td>mic in → gain out</td><td>between mics and USB audio</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel info-panel">
+      <h2>Mic array layout</h2>
+      <p class="muted">Linear array, 3 cm spacing, mounted on acoustic head:</p>
+      <pre class="code-block">[mic0] --- 3cm --- [mic1] --- 3cm --- [mic2] --- 3cm --- [mic3]
+                       |
+                  [speaker]
+                       |
+                  [servo pivot]</pre>
+    </section>
+
+    <section class="panel info-panel">
+      <h2>Power</h2>
+      <ul class="pipeline" style="list-style: disc;">
+        <li>18650 2-cell pack (7.4V) → L298N motor supply</li>
+        <li>Buck converter (5V/3A) → Raspberry Pi</li>
+        <li>Shared GND between Pi, ESP32, and motor driver</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>MIT · <a href="https://github.com/larped-gpu/echo-map">EchoMap</a></p>
+  </footer>
+</body>
+</html>
